@@ -1,7 +1,8 @@
-class Computer{
+const Player = require("./Player");
+
+class Computer extends Player{
     constructor(name){
-        this.score = 0;
-        this.name = 'Computer';
+        super(name);
     }
 
     chooseWeapon(weapon){

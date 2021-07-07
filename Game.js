@@ -36,7 +36,7 @@ class Game{
             console.log("Wow! You managed to tie after each rolling " + this.weapon.length + " dice!");
           }
         }
-        
+
         this.displayGameWinner();
     }
 

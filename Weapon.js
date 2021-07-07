@@ -20,4 +20,75 @@ class Weapon {
     }
 }
 
+
+
+
+class Rock extends Weapon{
+
+    constructor(weapon, wins, loses){
+        super(weapon, wins, loses);
+
+        this.weapon = "Rock";
+        this.wins = ['Lizard','Scissors']
+        this.loses = ['Paper','Spok']
+    }
+}
+
+
+
+
+
+class Paper extends Weapon{
+
+    constructor(weapon, wins, loses){
+        super(weapon, wins, loses);
+
+        this.weapon = "Paper";
+        this.wins = ['Rock','Spock']
+        this.loses = ['Scissors','Lizard']
+    }
+}
+
+
+
+
+class Scissors extends Weapon{
+
+    constructor(weapon, wins, loses){
+        super(weapon, wins, loses);
+
+        this.weapon = "Scissors";
+        this.wins = ['Paper','Lizard']
+        this.loses =['Rock','Spok']
+    }
+}
+
+
+
+
+class Lizard extends Weapon{
+
+    constructor(weapon, wins, loses){
+        super(weapon, wins, loses);
+
+        this.weapon = "Lizard";
+        this.wins = ['Spok','Paper']
+        this.loses =['Rock','Scissors']
+    }
+}
+
+
+
+
+class Spok extends Weapon{
+
+    constructor(weapon, wins, loses){
+        super(weapon, wins, loses);
+
+        this.weapon = "Spok";
+        this.wins = ['Scissors','Rock']
+        this.loses =['Lizard','Paper']
+    }
+}
+
 module.exports = Weapon

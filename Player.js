@@ -1,25 +1,14 @@
-const weapon = require('./Weapon')
+// const weapon = require('./Weapon')
 
 class Player{
     constructor(name){
+        this.weaponLists =['Rock','Paper','Scissors','Lizard','Spok']
         this.score = 0;
         this.name = name;
     }
 
-    chooseWeapon(weapon){
-        let weaponChoice =weapon.selectRandomWeapon();
-        return weaponChoice;
-    }
+    chooseWeapon(){
 
-    selectAllWeapon(weaponArr){
-        let selection = 0;
-
-        for(let i = 0; i < weaponArr.length; i ++){
-            let chosenWeapon = this.selectAllWeapon(weaponArr[i]);
-            weaponChoice += chosenWeapon;
-        }
-
-        return weaponChoice;
     }
 
 

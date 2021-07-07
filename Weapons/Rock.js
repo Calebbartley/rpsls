@@ -1,4 +1,4 @@
-const Weapon = require("./Weapon");
+const Weapon = require("../Weapon");
 
 class Rock extends Weapon{
 
