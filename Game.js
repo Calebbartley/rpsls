@@ -1,18 +1,18 @@
 const Player = require('./Player');
-// const Weapon = require('./Weapon');
+const Human = require('./Human');
 
 class Game{
     constructor(){
         this.playerOne = new Player('Player #1');
         this.playerTwo = new Player('Player #2');
 
-        this.weapon = [];
+        // this.weapon = [];
 
-        this.weapon.push(new Weapon('Rock'));
-        this.weapon.push(new Weapon('Paper'));
-        this.weapon.push(new Weapon('Scissors'));
-        this.weapon.push(new Weapon('Lizard'));
-        this.weapon.push(new Weapon('Spock'));
+        // this.weapon.push(new Weapon('Rock'));
+        // this.weapon.push(new Weapon('Paper'));
+        // this.weapon.push(new Weapon('Scissors'));
+        // this.weapon.push(new Weapon('Lizard'));
+        // this.weapon.push(new Weapon('Spock'));
 
     }
 
@@ -21,8 +21,8 @@ class Game{
         this.displayRules();
   
         while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
-          let playerOneTotal = this.playerOne.selectAllWeapon(this.weapon);
-          let playerTwoTotal = this.playerTwo.selectAllWeapon(this.weapon);
+          let playerOneTotal = this.playerOne.chooseWeapon(this.weapon);
+          let playerTwoTotal = this.playerTwo.chooseWeapon(this.weapon);
     
           if(playerOneTotal > playerTwoTotal) {
             console.log(this.playerOne.name + " wins this round!");
@@ -33,7 +33,7 @@ class Game{
             this.playerTwo.score++;
           }
           else {
-            console.log("Wow! You managed to tie after each rolling " + this.weapon.length + " dice!");
+            console.log("Wow! You managed to tie after each choosing " + this.chooseWeapon + "!");
           }
         }
 

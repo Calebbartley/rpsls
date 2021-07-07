@@ -2,13 +2,14 @@ const Player = require("./Player");
 const prompt = require('prompt-sync')();
 
 
-class Computer extends Player{
+class Human extends Player{
     constructor(name){
         super(name);
     }
 
     chooseWeapon(weapon){
         let weaponChoice =prompt("Choose Your Weapon!!!!! '1' for Rock, '2' for Paper,'3' for Scissors,'4' for Lizard,'5' for Spok.");
+
         if(weaponChoice == '1'){
             console.log('Rock! Great choice!')
         }
@@ -27,3 +28,5 @@ class Computer extends Player{
         return weaponChoice;
     }
 }
+
+module.exports = Human
