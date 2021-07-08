@@ -7,11 +7,13 @@ class Human extends Player{
         super(name);
     }
 
-    chooseWeapon(weapon){
-        let weaponChoice =prompt("Choose Your Weapon!!!!! '1' for Rock, '2' for Paper,'3' for Scissors,'4' for Lizard,'5' for Spok.");
-
+    chooseWeapon(){
+        let weaponChoice =prompt(`Choose Your Weapon!!!!! '1' for ${this.weaponLists[0]} Rock, '2' for ${this.weaponLists[1]} Paper,'3' for ${this.weaponLists[2]} Scissors,'4' for ${this.weaponLists[3]} Lizard,'5' for ${this.weaponLists[4]} Spok.`);
+        let weapon ;
         if(weaponChoice == '1'){
             console.log('Rock! Great choice!')
+            weapon = this.weaponLists[0]
+            return weapon;
         }
         else if(weaponChoice == '2'){
             console.log('Paper! Noted!')
@@ -25,7 +27,7 @@ class Human extends Player{
         else if(weaponChoice == '5'){
             console.log('Spok! BAZINGA!')
         }
-        return weaponChoice;
+    
     }
 }
 
