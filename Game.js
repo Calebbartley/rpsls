@@ -1,12 +1,15 @@
 const Player = require('./Player');
 const Human = require('./Human');
-
+const prompt = require('prompt-sync')()
 class Game{
     constructor(){
         // this.playerOne ;
         // this.playerTwo ;
-        this.playerOne = new Human('name')
-        this.playerTwo = new Human('name')
+        this.playerOne = new Human(prompt('Player #1 enter Name:'));
+        
+
+        this.playerTwo = new Human(prompt('Player #2 Enter Name:'));
+
 
         // this.weapon = [];
 
@@ -22,72 +25,72 @@ class Game{
     runGame(){
         this.displayRules();
 
-        while(this.playerOne.score < 3 && this.playerTwo.score < 3) {
+        do {
           let playerOneWeapon = this.playerOne.chooseWeapon();
           let playerTwoWeapon = this.playerTwo.chooseWeapon();
 
-          if(playerOneWeapon=== this.Human.weaponLists[0] && playerTwoWeapon=== this.Human.weaponLists[3] || this.Human.Human.weaponLists[2]) {
+          if(playerOneWeapon === this.playerOne.weaponLists[0] && (playerTwoWeapon === this.playerTwo.weaponLists[2]  || this.playerTwo.weaponLists[3])) {
+            console.log(this.playerOne.name + " wins this round!" + "score", this.playerOne.score);
+            this.playerOne.score++;
+          }
+          else if(playerTwoWeapon === this.playerTwo.weaponLists[0] && (playerOneWeapon === this.playerOne.weaponLists[3] || this.playerOne.weaponLists[4])) {
+            console.log(this.playerTwo.name + " wins this round!" + "score", this.playerOne.score);
+            this.playerTwo.score++;
+          }
+          else if (playerOneWeapon === this.playerOne.weaponLists[1] && (playerTwoWeapon === this.playerTwo.weaponLists[0] || this.playerTwo.weaponLists[4])){
             console.log(this.playerOne.name + " wins this round!");
             this.playerOne.score++;
           }
-          else if(playerTwoWeapon === this.Human.weaponLists[0] && playerOneWeapon === this.Human.weaponLists[3] || this.Human.weaponLists[2]) {
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[1] && (playerOneWeapon === this.playerOne.weaponLists[0] || this.playerOne.weaponLists[4])){
             console.log(this.playerTwo.name + " wins this round!");
             this.playerTwo.score++;
           }
-          else if (playerOneWeapon === this.Human.weaponLists[1] && playerTwoWeapon === this.Human.weaponLists[0] || this.Human.weaponLists[4]){
+          else if (playerOneWeapon === this.playerOne.weaponLists[2] && (playerTwoWeapon === this.playerTwo.weaponLists[1] || this.playerTwo.weaponLists[3])){
             console.log(this.playerOne.name + " wins this round!");
             this.playerOne.score++;
           }
-          else if (playerTwoWeapon === this.Human.weaponLists[1] && playerOneWeapon === this.Human.weaponLists[0] || this.Human.weaponLists[4]){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[2] && (playerOneWeapon === this.playerOne.weaponLists[1] || this.playerOne.weaponLists[3])){
             console.log(this.playerTwo.name + " wins this round!");
             this.playerTwo.score++;
           }
-          else if (playerOneWeapon === this.Human.weaponLists[2] && playerTwoWeapon === this.Human.weaponLists[1] || this.Human.weaponLists[3]){
+          else if (playerOneWeapon === this.playerOne.weaponLists[3] && (playerTwoWeapon === this.playerTwo.weaponLists[1] || this.playerTwo.weaponLists[4])){
             console.log(this.playerOne.name + " wins this round!");
             this.playerOne.score++;
           }
-          else if (playerTwoWeapon === this.Human.weaponLists[2] && playerOneWeapon === this.Human.weaponLists[1] || this.Human.weaponLists[3]){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[3] && (playerOneWeapon === this.playerOne.weaponLists[1] || this.playerOne.weaponLists[4])){
             console.log(this.playerTwo.name + " wins this round!");
             this.playerTwo.score++;
           }
-          else if (playerOneWeapon === this.Human.weaponLists[3] && playerTwoWeapon === this.Human.weaponLists[1] || this.Human.weaponLists[4]){
+          else if (playerOneWeapon === this.playerOne.weaponLists[4] && (playerTwoWeapon === this.playerTwo.weaponLists[0] || this.playerTwo.weaponLists[2])){
             console.log(this.playerOne.name + " wins this round!");
             this.playerOne.score++;
           }
-          else if (playerTwoWeapon === this.Human.weaponLists[3] && playerOneWeapon === this.Human.weaponLists[1] || this.Human.weaponLists[4]){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[4] && (playerOneWeapon === this.playerOne.weaponLists[0] || this.playerOne.weaponLists[2])){
             console.log(this.playerTwo.name + " wins this round!");
             this.playerTwo.score++;
           }
-          else if (playerOneWeapon === this.Human.weaponLists[4] && playerTwoWeapon === this.Human.weaponLists[0] || this.Human.weaponLists[2]){
-            console.log(this.playerOne.name + " wins this round!");
-            this.playerOne.score++;
-          }
-          else if (playerTwoWeapon === this.Human.weaponLists[4] && playerOneWeapon === this.Human.weaponLists[0] || this.Human.weaponLists[2]){
-            console.log(this.playerTwo.name + " wins this round!");
-            this.playerTwo.score++;
-          }
-          else if (playerTwoWeapon === this.Human.weaponLists[4] && playerOneWeapon === this.Human.weaponLists[4]){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[4] && (playerOneWeapon === this.playerOne.weaponLists[4])){
             console.log(this.playerTwo.name + "Tie!!! No Score");
 
           }
-          else if (playerTwoWeapon === this.Human.weaponLists[3] && playerOneWeapon === this.Human.weaponLists[3]){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[3] && (playerOneWeapon === this.playerOne.weaponLists[3])){
             console.log(this.playerTwo.name + "Tie!!! No Score");
           }
-          else if (playerTwoWeapon === this.Human.weaponLists[2] && playerOneWeapon === this.Human.weaponLists[2]){
-            console.log(this.playerTwo.name + "Tie!!! No Score");
-
-          }
-          else if (playerTwoWeapon === this.Human.weaponLists[1] && playerOneWeapon === this.Human.weaponLists[1]){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[2] && (playerOneWeapon === this.playerOne.weaponLists[2])){
             console.log(this.playerTwo.name + "Tie!!! No Score");
 
           }
-          else if (playerTwoWeapon === this.Human.weaponLists[0] && playerOneWeapon === this.Human.weaponLists[0]){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[1] && (playerOneWeapon === this.playerOne.weaponLists[1])){
+            console.log(this.playerTwo.name + "Tie!!! No Score");
+
+          }
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[0] && (playerOneWeapon === this.playerOne.weaponLists[0])){
             console.log(this.playerTwo.name + "Tie!!! No Score");
 
           }
         this.displayGameWinner();
-        }
-    }
+        } while(this.playerOne.score < 3 && this.playerTwo.score < 3)
+    } 
 
 
     displayRules() {
