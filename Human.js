@@ -39,11 +39,10 @@ class Human extends Player{
             return weapon;
             // console.log('Spok! BAZINGA!')
         }
-        
         return weapon;
-    
+
     }
-    
+
 }
 
 module.exports = Human

@@ -1,24 +1,33 @@
 const Player = require('./Player');
 const Human = require('./Human');
 const prompt = require('prompt-sync')()
+const Computer = require('./Computer')
 class Game{
     constructor(){
         // this.playerOne ;
         // this.playerTwo ;
-        this.playerOne = new Human(prompt('Player #1 enter Name:'));
-        
 
-        this.playerTwo = new Human(prompt('Player #2 Enter Name:'));
+        console.log(`Welcome Contestant!!!\n To select Human vs Human choose option '1'.\n To choose Human vs AI choose option '2'`);
+        let gameMenu = prompt();
+        switch(gameMenu){
+          case '1':
+            this.playerOne = new Human(prompt('Player #1 enter Name:'));
 
 
+            this.playerTwo = new Human(prompt('Player #2 Enter Name:'));
+            break;
+          case '2':
+            this.playerOne = new Human(prompt('Player #1 Enter Name:'));
+
+
+            this.playerTwo = new Computer; 
+        }
         // this.weapon = [];
-
         // this.weapon.push(new Weapon('Rock'));
         // this.weapon.push(new Weapon('Paper'));
         // this.weapon.push(new Weapon('Scissors'));
         // this.weapon.push(new Weapon('Lizard'));
         // this.weapon.push(new Weapon('Spock'));
-
     }
 
 
@@ -33,8 +42,8 @@ class Game{
             console.log(this.playerOne.name + " wins this round!" + "score", this.playerOne.score);
             this.playerOne.score++;
           }
-          else if(playerTwoWeapon === this.playerTwo.weaponLists[0] && (playerOneWeapon === this.playerOne.weaponLists[3] || this.playerOne.weaponLists[4])) {
-            console.log(this.playerTwo.name + " wins this round!" + "score", this.playerOne.score);
+          else if(playerTwoWeapon === this.playerTwo.weaponLists[0] && (playerOneWeapon === this.playerOne.weaponLists[2] || this.playerOne.weaponLists[3])) {
+            console.log(this.playerTwo.name + " wins this round!" + "score", this.playerTwo.score);
             this.playerTwo.score++;
           }
           else if (playerOneWeapon === this.playerOne.weaponLists[1] && (playerTwoWeapon === this.playerTwo.weaponLists[0] || this.playerTwo.weaponLists[4])){
@@ -69,7 +78,7 @@ class Game{
             console.log(this.playerTwo.name + " wins this round!");
             this.playerTwo.score++;
           }
-          else if (playerTwoWeapon === this.playerTwo.weaponLists[4] && (playerOneWeapon === this.playerOne.weaponLists[4])){
+          else if (playerTwoWeapon === this.playerTwo.weaponLists[4] && playerOneWeapon === this.playerOne.weaponLists[4]){
             console.log(this.playerTwo.name + "Tie!!! No Score");
 
           }
@@ -88,12 +97,12 @@ class Game{
             console.log(this.playerTwo.name + "Tie!!! No Score");
 
           }
-        this.displayGameWinner();
+
         } while(this.playerOne.score < 3 && this.playerTwo.score < 3)
-    } 
+    }
 
 
-    displayRules() {
+    displayRules(){
         console.log("Welcome to the 'RPSLS' Tournament!")
         console.log("Two players will select a weapon and compare their results.")
         console.log("The winning weapon will earn that player a point");
@@ -101,15 +110,19 @@ class Game{
       }
 
 
-      displayGameWinner() {
-        if(this.playerOne.score > this.playerTwo.score) {
+  displayGameWinner(){
+        if(this.playerOne.score === 3) {
           console.log(this.playerOne.name + " wins this game!");
         }
-        else {
+        else {(this.playerTwo.score === 3)
           console.log(this.playerTwo.name + " wins this game!");
         }
       }
 
 
+
+
+
 }
+
 module.exports = Game;

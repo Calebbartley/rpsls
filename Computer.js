@@ -3,18 +3,22 @@ const Player = require("./Player");
 class Computer extends Player{
     constructor(name){
         super(name);
+        this.weaponLists =['Rock','Paper','Scissors','Lizard','Spock'];
+        this.score = 0;
+        this.name = 'AI'
     }
 
-    chooseWeapon(weapon){
-        let weaponChoice =weapon.selectRandomWeapon();
+    chooseWeapon(){
+        this.weaponLists =['Rock','Paper','Scissors','Lizard','Spock'];
+        let weaponChoice =this.weaponLists.selectRandomWeapon();
         return weaponChoice;
     }
 
-    selectAllWeapon(weaponArr){
-        let selection = 0;
+    selectAllWeapon(){
+        let weapon = 0;
 
-        for(let i = 0; i < weaponArr.length; i ++){
-            let chosenWeapon = this.selectAllWeapon(weaponArr[i]);
+        for(let i = 0; i < this.weaponLists.length; i ++){
+            let chosenWeapon = this.selectAllWeapon(this.weaponLists[i]);
             weaponChoice += chosenWeapon;
         }
 
