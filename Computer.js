@@ -5,25 +5,29 @@ class Computer extends Player{
         super(name);
         this.weaponLists =['Rock','Paper','Scissors','Lizard','Spock'];
         this.score = 0;
-        this.name = 'AI'
+        this.name = 'Sunny'
+        
     }
 
     chooseWeapon(){
-        this.weaponLists =['Rock','Paper','Scissors','Lizard','Spock'];
-        let weaponChoice =this.weaponLists.selectRandomWeapon();
-        return weaponChoice;
+
+        let weapon =this.weaponLists[Math.floor(Math.random() * this.weaponLists.length)] ;
+        // add dice game math and test. everything else works fine except for the scoring and game repeat
+
+        return weapon;
+
     }
 
-    selectAllWeapon(){
-        let weapon = 0;
+    // selectAllWeapon(){
+    //     let weapon = 0;
 
-        for(let i = 0; i < this.weaponLists.length; i ++){
-            let chosenWeapon = this.selectAllWeapon(this.weaponLists[i]);
-            weaponChoice += chosenWeapon;
-        }
+    //     for(let i = 0; i < this.weaponLists.length; i ++){
+    //         let chosenWeapon = this.selectAllWeapon(this.weaponLists[i]);
+    //         weaponChoice += chosenWeapon;
+    //     }
 
-        return weaponChoice;
-    }
+    //     return weaponChoice;
+    // }
 
 
 

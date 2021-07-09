@@ -8,6 +8,7 @@ class Human extends Player{
         this.weaponLists =['Rock','Paper','Scissors','Lizard','Spock'];
         this.score = 0;
         this.name = name
+        
     }
 
     chooseWeapon(){
